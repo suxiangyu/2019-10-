@@ -1,15 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+
+    14、
+    document.body 获取body元素
+    var oDiv = document.createElement('div');
+    oDiv.className = 'box';
+    oDiv.innerHTML = '好好学习 天天向上'; // innerHTML  可以识别结构
+    document.body.appendChild(oDiv);   
+
+15、
+    let n = 'm';
+    let a = {n:12};
+    let b = a;
+    b['n'] = 13;// b.n = 200
+    b.n = 13;
+    b[n] = 13; // b['m'] = 13
+    console.log(a.n); // 13
+
+16、数据类型的比较
+    // 引用数据类型之间比较的永远是地址； 
+    A：[] == []  //false
+    B：![] == [] //    false == []    0 == 0     true
+    C：'123' == [123]  //  字符串跟引用数据类型比较的时候， 我们把 引用数据类型使用toString转成字符串 然后再去比较
+    D：1 == [1] //      1 == [1] ;数字跟引用数据类型比较，我们把引用数据类型转成数字(先用toString转成字符串，再用Number把字符串转成数字)， 
+
+17、定时器
+    var timer = setTimeout
+    var timer = setInterval
+    clearTimeout()
+    clearInterval()
+
+    怎么结合setTimeout和递归实现 setInterval
+    setInterval(()=>{
+        console.log(666)
+    },1000)
+
+    function f(){
+        console.log(666);
+        // f()
+        setTimeout(()=>{
+            f()
+        },1000)
+    }
+18、Math.max(...ary)  
+
+    假设法
+    var max = ary[0];
+    ary.forEach(item=>{
+        item > max ? max = item : null
+    })
+    max
+
+    先排序后取值  ary.sort((a,b)=>b-a)  ary[0]
     
-</body>
-</html>
-<script>
-     
+19、复制数组
+    ary.slice()
+    ary.slice(0)
+    ary.concat([])
+    for
+    forEach
+    map  ary.map(a=>a)
+
+20、var a = 1 || 0, b = 1 && 0;    
+    a || b    前边成立给前边，前边不成立给后边
+    a && b    前边成立给后边，前边不成立给前边
+
+    
+    
+*/
+
+var a = [1, 2, 3];
+var b = a;
+a.push(4)
+console.log(b) // 1,2,3,4
+b.push(5);
+console.log(a) // 1,2,3,4,5
+b = [1, 1, 1]
+console.log(a) // 1,2,3,4,5
+
+typeof typeof 12; // 'string'
+
+function getType(a) {
+    var str = Object.prototype.toString.call(a); // 获取数据类型字符串
+    // 再从该字符串中截取我们要的字符串
+    var str2 = str.slice(8, str.length - 1); // 首字母都是大写 需要变成小写；
+    return str2.toLowerCase();
+}
+getType('') // 'string'
+getType(1) // 'number'
+getType([]) // 'array'
+
+// const a = 12;
+// a = 13
+// const b = [];// b 是一个地址
+// b.push(1,2,3);
+// b = [];// 给了b一个新的地址， 这时就会报错
+
+isNaN([]); // false
+isNaN({}); // true
+isNaN(1); // false
+
+function myIsNaN(n) {
+    var m = Number(n);
+    if (m + '' === 'NaN') {
+        return true
+    }
+    return false; // return有打断函数执行的特点  所有我们在这里没写else
+}
+var a = [1, 2, 3, 4, 5, 6];
+var b = a.map((item, index) => {
+    return item += 3
+})
+console.log(b)
+
+
+
+/* 
+    1、不定项求和
+
+*/
+function sum() {
+    // arguments 实参集合
+    var total = 0;
+    for(var i = 0; i < arguments.length; i++){
+        var temp = arguments[i];
+        if(!isNaN(temp)){
+            // 转化成数字 不是NaN的项 才能够被累加；
+            total += temp*1
+        }
+    }
+    return total; 
+}
+function sum2() {
+    // arguments 实参集合
+    var total = 0;
+    for(var i = 0; i < arguments.length; i++){
+        var temp = arguments[i];
+        if(typeof temp === 'number' && !isNaN(temp)){
+            // 必须是个数字 而且还不能是NaN
+            total += temp //-==>  total = total + temp
+        }
+    }
+    return total; 
+}
+let total = sum2(10,20,NaN,'30','珠峰','40');
+console.log(total);
+
+
+/* 
+    获取 url上的参数
+*/
+function queryURLParameter(url){
+    var str = url.split('?')[1];//name=zxt&age=28&sex=0#teacher
+    var ary = str.split('#');
+    var hash = ary[1];// teacher
+    var str2 = ary[0];// name=zxt&age=28&sex=0
+    var ary2 = str2.split('&');// ['name=zxt','age=28','sex=0']
+    var obj = {};
+    ary2.forEach(item=>{
+        var a = item.split('=');// ['name','zxt']
+        obj[a[0]] = a[1];
+    })
+    obj.HASH = hash;
+    return obj;
+}
+let str = 'http://www.zhufengpeixun.com/stu/?name=zxt&age=28&sex=0#teacher';
+let result = queryURLParameter(str);
+console.log(result);
+
+
+/* 
+    验证码： 考点  随机  元素的操作
+    // 先有一个大字符串  大小写字母 和数字  62个字符；
+    随机数范围  0-61 把获取到的数字当作了 大字符串的索引去理解
+    之后再字符串拼接
+    把拼接好的字符串再显示到页面上即可
+*/
+function getStr() {
+    var str = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789';
+    // Math.round(Math.randon()*61)
+    var s = '';
+    while (s.length < 4) {
+        var n = Math.round(Math.random()*61);
+        if(s.indexOf(str[n])==-1){
+            s += str[n];
+        }
+    }
+    // for(var i = 0; i < 4 ;){
+    //     var n = Math.round(Math.random()*61);
+    //     if(s.indexOf(str[n])==-1){
+    //         s += str[n];
+    //         i++
+    //     }
+    // }
+    return s
+}
+var oDiv = document.getElementById('box');
+box.onclick = function () {
+    this.innerHTML = getStr();
+}
+console.log(getStr());
 </script>
