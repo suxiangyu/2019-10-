@@ -131,8 +131,8 @@
     var ary = [1, 2, 3]
     ary.sort().reverse().join('+').split('+')
     // 链式调用 要保证 前边函数的返回结果可以调用到后边的函数；
-    Array.prototype.myPop =function(){
-        let temp = this[this.length-1];
+    Array.prototype.myPop = function () {
+        let temp = this[this.length - 1];
         this.length--;
         return this
     }
