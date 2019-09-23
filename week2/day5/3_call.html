@@ -32,7 +32,7 @@
                                         // call 执行结果  就是 fn 的执行结果
     function myNew(classN, ...arg) {
         var obj = new Object();
-        obj.__protp__ = classN.prototype;
+        obj.__proto__ = classN.prototype;
         var res = classN.call(obj, ...arg)
         return typeof res === 'object' ? res : obj;
     }
