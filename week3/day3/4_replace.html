@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inp">
+</body>
+
+</html>
+<script>
+    // replace  替换;
+    '2019-02-03'.replace('-', '/').replace('-', '/')
+    var res = '2019-02-03'.replace(/-/g, '/');
+    console.log(res)
+
+    var str = 'afshgs21212hsshs212gss2f'
+    var res = str.replace(/\d+/g, '-')
+    console.log(res)
+
+    var str = '     adadf    agsgsggg    '
+    // 使用正则去除字符串的首位空格
+    // 以1到多个空格开头或者结尾的 都替换成空
+    var res = str.replace(/^( +)|( +)$/g, '')    // (/^ +| +$/g,'') 加不加括号无所谓
+    console.log(res)
+
+
+    // 输入框限制输入内容  利用replace结合正则来使用
+    inp.oninput = function () {
+        let str = this.value;
+        // var res = str.replace(/^ +/g, '');
+        var res = str.replace(/[^\d ]/g, '');
+        this.value = res;
+    };
+
+
+
+
+
+    var str = 'aqweAVsdDFEc';
+    // var reg = /[A-Z]/g
+    // var res = str.replace(reg, function ($1) {
+    //     console.log($1)
+    //     return $1.toLowerCase()
+    // })
+    // console.log(res)
+    var res = str.replace(/[a-zA-Z]/g, function ($1) {
+        if ($1.toLowerCase() == $1) {
+            return $1.toUpperCase()
+        }
+        return $1.toLowerCase();
+    })
+    console.log(res, 444444444444444);
+
+    var str = 'aqweAVsdDFEc';
+    var reg = /[A-Z]/g
+    var res = str.replace(reg, function ($1) {
+        console.log($1)
+        return $1.toLowerCase()
+    })
+    console.log(res)
+
+
+
+    var str2 = '';
+    for (var i = 0; i < str.length; i++) {
+        let a = str[i];
+        if (a.toLowerCase() == a) {
+            // 说变量a对应的字符是一个小写字母
+            str2 += a.toUpperCase(); // toUpperCase()  把字母转成大写
+        } else {
+            str2 += a.toLowerCase(); // toLowerCase()  把字母转成小写
+        }
+    }
+    console.log(str, str2)
+
+
+    var str = 'aqweAVsdDFEc';
+    var res = str.replace(/([a-z]*)([A-Z]*)/g, function ($0, $1, $2) {
+        return $1.toUpperCase() + $2.toLowerCase()
+    })
+    console.log(res, 77777777777)
+
+
+
+    var str2 = '';
+    for (var i = 0; i < str.length; i++) {
+        let a = str[i];
+        if (a.toLowerCase() == a) {
+            // 说变量a对应的字符是一个小写字母
+            str2 += a.toUpperCase(); // toUpperCase()  把字母转成大写
+        } else {
+            str2 += a.toLowerCase(); // toLowerCase()  把字母转成小写
+        }
+    }
+    console.log(str, str2)
+
+
+
+    var str = 'zf2019zf2020';
+    var res = str.replace(/([a-z])+(\d+)/g, function () {
+        // replace  的回调函数的实参结果  跟  match和exec获取的 类似
+        // 返回的字符串  是由匹配到的内容被return值 替换之后的新字符串
+        // 回调函数的执行次数  跟正则匹配到的次数一样
+        console.log(arguments)
+    })
+
+
+
+    var str = 'ad2a12212faf'
+    var res = str.replace(/([a-z]+)(\d+)/g, '$1==$2'); // $1 $2 $3 ... 分别代表第一个小分组，第二个小分组， 第三个小分组 
+    var res = str.replace(/([a-z]+)(\d+)/g, '$2$1');  // 把第二个小分组 放到第一个小分组前面
+    console.log(res)
+
+
+    function getParam(url) {
+        var reg = /([^?=&]+)=([^?=&#]+)/g;
+        var obj = {};
+        url.replace(reg, function ($0, $1, $2) {
+            obj[$1] = $2
+        })
+        var v = url.match(/#(.+)/) ? url.match(/#(.+)/)[1] : null;
+        obj.hash = v;
+        return obj;
+    }
+    var str = 'http://www.zhufengpeixun.cn/?lx=1&from=wx&b=12&c=13#qqqq';
+    getParam(str);
+</script>
