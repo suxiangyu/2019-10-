@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    var reg = /\\d/
+    var str = '\\d'    // ====> \d
+    var str2 = '\d'    // ====>  d
+    /*
+        正则：正则是专门用于处理字符串的一种规则；
+              匹配  test   写一个正则 然后看某个字符串是否满足你编写的规则
+              捕获  exec   写一个正则 把字符串中符合正则的部分捕获到
+        正则的书写方式：
+              字面量  var reg = /-/gim
+              构造函数 var reg = new RegExp('-','gim')
+        正则是由 元字符 修饰符  组成的；
+
+        特殊元字符
+             \          转义
+             \d         0-9
+             \D         非0-9
+             \w         数字 字母 下划线
+             \W         非w
+             \n         代表换行
+             \s         空白符（空格）
+             .          除换行之外的任意字符
+             ^          以什么开头
+             $          以什么结尾
+             [abc.]     a或b或c或点（中括号里面点是它本身）
+             [a\-b]     a或-或b
+             [a-b]      a到b
+             [^a-bA-Z]  除了ab或者大写字母之外的字符
+             ab|cd      ab 或 cd
+             ()         分组提升优先级
+             (?:)       只匹配不捕获
+             (?=)       正向肯定预查
+             (?!)       正向否定预查
+
+        量词元字符  (限定符)
+             ?          0-1
+             *          0-多次
+             +          1-多次
+             {n}        n
+             {n,m}      n-m
+             {n,}       n-多次       
+  
+        修饰符
+             i          ignoreCase   忽略大小写
+             m          mutiline     多行匹配
+             g          global       全局匹配
+    */
+    var reg = /[a\-b]/
+    var str = '\\';
+    reg.test(str)
+</script>

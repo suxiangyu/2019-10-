@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // client  offset  scroll   width  heigth  left  top
+    /*
+    console.log(box.clientWidth)    // 240盒子的宽度  加上左右的padding;
+    console.log(box.clientHeight)   // 240盒子的宽度  加上上下的padding
+    console.log(box.clientLeft)     // 10左边框的宽度
+    console.log(box.clientTop)      // 10上边框的宽度
+
+
+    console.log(box.offsetWidth)    // 260 clientwidth + 左右border
+    console.log(box.offsetHeight)   // 260 clientheight + 上下border
+    console.log(box.offsetTop)      //  当前元素的外边框到上级参照物的内边框的偏移量
+    console.log(box.offsetLeft)     //  左偏移量  同上
+    console.log(box.offsetParent)// 上级参照物； 指的是上层有定位的那一级元素，若都没有定位，则直接找到body为止
+
+
+    console.log(box.scrollWidth)    // 内容不溢出的情况下  等同于 client；
+                                    // 内容溢出，没有设置 overflowe 值是 内容宽高 + 上或左padding  
+                                    // 内容溢出    有设置 overflow  值是 内容宽高 + 上下或者左右padding
+    console.log(box.scrollHeight)
+    console.log(box.scrollLeft)     // 卷去的内容宽度
+    13个属性  只有scrollTop和scrollLeft是可以设置值的，其他的都是只读属性
+    */
+
+    // 封装一个offset方法:该方法 可以求出当前元素到body的偏移量
+    offset(box) // {l: , t: }
+    function offset(ele) {
+        // ele 到 body 的偏移量
+        let l = ele.offsetLeft,  // ele到上级参照物的左偏移量
+            t = ele.offsetTop;
+        let temp = ele.offsetParent; // ele的上级参照物
+        while (temp) {
+            l += temp.clientLeft + temp.offsetLeft;
+            t += temp.clientTop + temp.offsetTop;
+            temp = temp.offsetParent;
+        }
+        return {
+            l, t
+        }
+    }
+</script>
