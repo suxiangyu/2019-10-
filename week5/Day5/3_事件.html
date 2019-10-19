@@ -15,20 +15,20 @@
 </html>
 <script>
     /*
-        鼠标事件：  click
-                   dblclick
-                   contextmenu
-                   mousedown
-                   mouseup
-                   mouseenter
-                   mouseleave
-                   mouseover
-                   mouseout
-                   mousewheel
-                   mousemove
-        键盘事件：  keydown
-                   keyup
-                   keypress
+        鼠标事件：  click           单机
+                   dblclick        双击   大致 300ms之内 连续点击两次
+                   contextmenu     右键
+                   mousedown       鼠标按下(左键)
+                   mouseup         鼠标抬起
+                   mouseenter      鼠标移入
+                   mouseleave      鼠标移出
+                   mouseover       鼠标滑过
+                   mouseout        鼠标滑出
+                   mousewheel      鼠标的滚轮事件
+                   mousemove       鼠标滑动
+        键盘事件：  keydown         键盘按下
+                   keyup           键盘抬起
+                   keypress        按下抬起触发一次
         可以绑定键盘事件的元素     input     document   window      textarea     button      div+contenteditable
         input 事件
                    oninput
@@ -37,8 +37,8 @@
                    onfocus   聚焦时  触发    事件
                    focus()   让该元素  聚焦
                    blur()    让该元素  失焦
-        系统事件   onscroll
-                  onresize
+        系统事件   onscroll   页面滚动；只要能出现滚动条的元素 都可以绑定scroll事件
+                  onresize   窗口大小发生改变的时候
                   onload     页面资源加载完成
                   $(document).ready(function(){}) DOM 结构加载完成  DOMContentLoaded
 
