@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">剑来</div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    // 放大镜  小蒙层/小盒子  ===   小盒子比大图片; 蒙层移动的方向和大图的移动方向是正好相反的
+    // 大图移动的距离  与小蒙层移动的距离  的 比例关系 ； 大盒子/小蒙层;
+
+    // DOM二级事件绑定  box.addEventListener('事件类型',回调函数,false) false是冒泡  true是捕获
+    //                 box.removeEventListener('事件类型',绑定的那个回调函数的地址,false);
+    //                 box.addachEvent('on事件类型',回调函数)  IE 低版本  添加事件  没有false  默认冒泡
+    //                 box.detachEvent('on事件类型',回调函数)            移出事件
+    Element.prototype.one = function (type, cb) {
+        // this --> box
+        function fn(e) {
+            cb.call(this, e)
+            this.removeEventListener(type, fn, false);
+        }
+        this.addEventListener(type, fn, false); // fn中的this  是box
+    }
+    box.one('click', function (e) {
+        // e 是事件对象  this 是 box;
+        console.log(e, this)
+    })
+    $(document).ready(function () {
+        // DOMContentloaded
+        // DOM 加载完成触发
+    })
+    window.onload = function () {
+        // 页面资源加载完成
+    }
+    window.addEventListener('load', function () { }, false)
+
+    // mouseenter 没有冒泡 ; mouseover 有事件冒泡
+</script>
