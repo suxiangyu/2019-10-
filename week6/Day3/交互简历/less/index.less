@@ -9,6 +9,7 @@
 .w() {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .hide {
@@ -22,6 +23,7 @@ body {
 
     >section {
         .w();
+        overflow: hidden;
         position: absolute;
         top: 0;
         left: 0;
@@ -29,7 +31,7 @@ body {
 
     section.loadingBox {
         background: #333;
-        transition:opacity 1s 1s;
+        transition:opacity 1s;
         z-index: 30;
         text-align: center;
         color: #fff;
@@ -72,7 +74,7 @@ body {
         background:url('@{img}/phone-bg.jpg');
         background-size: cover;
         z-index:20;
-
+        transition: transform 0.8s;
         header {
             color: #fff;
             text-align: center;
@@ -109,13 +111,21 @@ body {
         }
         .overBox{
             width:90vw;
-            background:url('@{img}/phone-key.png');
+            background:url('@{img}/phone-key.png') no-repeat;
             height:115vw;
             background-size:contain;
             position: absolute;
             left:5vw;
             bottom:0.2rem;
             transition:all 0.5s;
+            .overBtn{
+                position: absolute;
+                width: 26vw;
+                height: 16vw;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 7vw;
+            }
         }
         .bot{
             transform:translateY(110%);
@@ -127,6 +137,106 @@ body {
             100%{
                 transform: scale(1)
             }
+        }
+    }
+    section.chatBox{
+        .w();
+        background: rgba(198, 186, 226, 0.945);
+        z-index: 10;
+        .chatMsgBox{
+            padding: 5vw;
+            transition: all 0.4s;
+            li{
+                overflow: hidden;
+                margin-bottom: 5vw;
+                transition: all 0.5s;
+                >div{
+                    float: left;
+                }
+                .imgBox{
+                    width: 13vw;
+                    height: 13vw;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img{
+                        .w();
+                    }
+                }
+                .msg{
+                    max-width: 60vw;
+                    padding: 3.5vw;
+                    margin-left: 4vw;
+                    background: #fff;
+                    border: 1px solid #eee;
+                    box-sizing: border-box;
+                    border-radius: 7px;
+                    word-break:break-all;
+                    &::before{
+                        content: '';
+                        display: block;
+                        width: 3vw;
+                        height: 3vw;
+                        border: 1px solid #eee;
+                        border-color: transparent transparent #eee #eee;
+                        background: #fff;
+                        transform: translateX(-5vw) translateY(1vw) rotate(45deg);
+                        position: absolute;
+                    }
+                }
+            }
+            li.right{
+                overflow: hidden;
+                >div{
+                    float: right;
+                }
+                .msg{
+                    margin-left: 0;
+                    margin-right: 4vw;
+                    position: relative;
+                    background: #50c945;
+                    border-color: #13ce0c;
+                    &::before{
+                        background: #50c945;
+                        border: 1px solid #50c945;
+                        border-bottom: none;
+                        border-left: none;
+                        transform: translateY(1vw) rotate(45deg);
+                        right: -1.4vw;
+                    }
+                }
+            }
+            li.opa{
+                transform: translateY(0.5rem);
+                opacity: 0;
+            }
+        }
+        .keyboard{
+            width: 7.5rem;
+            height: 6.05rem;
+            background: url('@{img}/message-keyboard.png') no-repeat;
+            background-size: contain;
+            position: absolute;
+            bottom: -0.5rem;
+            transition: transform 0.5s;
+            .chatBtn{
+                position: absolute;
+                width: 1.47rem * (75/64);
+                height: 0.74rem * (75/64);
+                background: url('@{img}/message-chatBtn.png') no-repeat;
+                background-size: contain;
+                right: 0.1rem;
+                bottom: 0.7rem;
+            }
+            p{
+                position: absolute;
+                width: 4.8rem;
+                height: 0.5rem;
+                top:0.4rem;
+                left: 1rem;
+            }
+        }
+        .bot{
+            transform: translateY(4.4rem)
         }
     }
 }
