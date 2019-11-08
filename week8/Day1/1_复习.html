@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // http  三握四挥;  http 和 https
+    // ajax  timeout  abort  ontimeout  onabort
+    //       readyState: 0 -4;   statys  http状态码:   强制缓存  协商缓存
+    // axios get popst  拦截器     'content-type';  
+    // fetch fetch(url,{}).then(()=>{},()=>{}).then()
+    // same-origin   include   omit
+    /*
+    fetch('./data.json').then((data)=>{
+        // console.log(data)
+        return data.json();
+    }).then((data)=>{
+        console.log(data)
+    });
+    */
+
+    //  localStorage   cookie
+
+    // PromiseA+
+
+    // webSocket    socket.io    onopen   onmessage    onerror    onclose    send    close
+
+    // 跨域  jsonp:script 的src不存在  跨域; 同源策略
+    //       cors
+    //       postMessage
+
+
+    function f(s) {
+        if (s.indexOf('[') < 0) return s;
+
+    }
+
+
+
+
+
+
+
+
+
+
+    /*
+        LazyMan('Tony');
+        // Hi I am Tony
+    
+        LazyMan('Tony').sleep(10).eat('lunch');
+        // Hi I am Tony
+        // 等待了10秒...
+        // I am eating lunch
+    
+        LazyMan('Tony').eat('lunch').sleep(10).eat('dinner');
+        // Hi I am Tony
+        // I am eating lunch
+        // 等待了10秒...
+        // I am eating diner
+    
+        LazyMan('Tony').eat('lunch').eat('dinner').sleepFirst(5).sleep(10).eat('junk food');
+        // Hi I am Tony
+        // 等待了5秒...
+        // I am eating lunch
+        // I am eating dinner
+        // 等待了10秒...
+        // I am eating junk food
+    
+    */
+    class Man {
+        constructor(name) {
+            console.log('Hello I am ' + name);
+            this.ary = [];
+            setTimeout(() => {
+                this.next()
+            })
+        }
+        next() {
+            let f = this.ary.shift(); // f就是当前数组的第一个函数
+            f && f();
+        }
+        eat(type) {
+            this.ary.push(() => {
+                console.log('eat ' + type);
+                this.next();
+            })
+            return this
+        }
+        sleep(n) {
+            this.ary.push(() => {
+                setTimeout(() => {
+                    console.log(`睡${n}秒`);
+                    this.next();
+                }, n * 1000);
+            })
+            return this
+        }
+        sleepFirst(n) {
+            this.ary.unshift(() => {
+                setTimeout(() => {
+                    console.log(`先睡了${n}秒`);
+                    this.next();
+                }, n * 1000);
+            })
+            return this
+        }
+    }
+    function LazyMan(name) {
+        return new Man(name)
+    }
+    // LazyMan('Tony').eat('lunch').sleep(3).eat('dinner').eat('junk food');
+    LazyMan('Tony').eat('lunch').eat('dinner').sleepFirst(5).sleep(10).eat('junk food');
+</script>
