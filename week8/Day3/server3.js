@@ -5,9 +5,14 @@ let { readFile, writeFile } = require('./promiseFs');
 let server = http.createServer((req, res) => {
     let { pathname, query } = url.parse(req.url, true);
     let method = req.method;
-    res.setHeader('Access-Control-Allow-Origin', "*"); // 让后端支持跨域
+    res.setHeader('Access-Control-Allow-Origin', "http://localhost:3000"); // 让后端支持跨域
+    // 跨域设置cookie  
+    // 跨域的源域不能是*   
+    // 响应头需要有Access-Control-Allow-Credentials属性  
+    // 前端允许跨域携带cookie
     res.writeHead(200, {
-        'Access-Control-Allow-Credentials': true
+        'Access-Control-Allow-Credentials': true,
+        "set-cookie": 'qwer=12345'
     })
     // list get
     // add  post
