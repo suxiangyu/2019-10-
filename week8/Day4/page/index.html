@@ -11,8 +11,10 @@
 <body>
     <input type="text" placeholder="用户名" name="" id="usn">
     <input type="password" placeholder="密码" name="" id="psd">
-    <button id="btn">注册</button>
-    <button id="btn2" style="display: none;">登录</button>
+    <button id="btn" style="display: none;">注册</button>
+    <button id="btn2">登录</button>
+
+    <button id="btn3">请求info</button>
 </body>
 
 </html>
@@ -50,6 +52,15 @@
             success: (data) => {
                 console.log(data)
             }
+        })
+    })
+    $('#btn3').on('click', function () {
+        $.ajax({
+            type: 'get',
+            url: "http://localhost:8000/info",
+            xhrFields: {
+                withCredentials: true
+            },
         })
     })
 </script>

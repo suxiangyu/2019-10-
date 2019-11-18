@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/element-ui/packages/theme-chalk/lib/index.css">
+    <style>
+        .el-table th:nth-child(1) .cell::before {
+            content: "全选";
+        }
+
+        .el-table .cell,
+        .el-table th div,
+        .el-table--border td:first-child .cell,
+        .el-table--border th:first-child .cell {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <el-table :data="tableData" border style="width: 100%" :select-on-indeterminate="true">
+            <el-table-column type="selection" width="70">
+            </el-table-column>
+            <el-table-column align="center" prop="title" label="商品名称" width="120">
+            </el-table-column>
+            <el-table-column align="center" prop="pic" label="图片" width="120">
+                <template slot-scope="scope">
+                    <img :src="scope.row.pic" alt="qwe">
+                </template>
+            </el-table-column>
+            <el-table-column align="center" prop="desc" label="描述" width="120">
+            </el-table-column>
+            <el-table-column align="center" prop="price" label="单价" width="300">
+            </el-table-column>
+            <el-table-column align="center" prop="count" label="数量" width="120">
+            </el-table-column>
+            <el-table-column align="center" prop="price" label="小计" width="120">
+            </el-table-column>
+            <el-table-column align="center" label="操作" width="120">
+                <template slot-scope="scope">
+                    <el-button type="danger">{{scope.row.do}}</el-button>
+                </template>
+            </el-table-column>
+
+        </el-table>
+    </div>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../node_modules/element-ui/lib/index.js"></script>
+<script>
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            tableData: [{
+                "pic": "https://img10.360buyimg.com/cms/s80x80_jfs/t20599/5/1848245261/259599/458bc9b5/5b39951dNfa084179.jpg",
+                "title": "劲酒",
+                "desc": "颜色：红色",
+                "price": 18000,
+                "count": 1,
+                "isSelect": true,
+                "id": 1,
+                "do": "删除"
+            },
+            {
+                "pic": "https://img10.360buyimg.com/cms/s80x80_jfs/t20599/5/1848245261/259599/458bc9b5/5b39951dNfa084179.jpg",
+                "title": "杏花村",
+                "desc": "颜色：白色",
+                "price": 18000,
+                "count": 1,
+                "isSelect": true,
+                "id": 2,
+                "do": "删除"
+            },
+            {
+                "pic": "https://img10.360buyimg.com/cms/s80x80_jfs/t20599/5/1848245261/259599/458bc9b5/5b39951dNfa084179.jpg",
+                "title": "老白汾",
+                "desc": "颜色：白色",
+                "price": 18000,
+                "count": 1,
+                "isSelect": true,
+                "id": 3,
+                "do": "删除"
+            }
+            ]
+
+        },
+        methods: {
+            handleClick(row) {
+                console.log(row);
+            },
+        }
+
+
+
+
+
+    })
+</script>

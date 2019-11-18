@@ -1,0 +1,28 @@
+[{
+    "pic": "https://img10.360buyimg.com/cms/s80x80_jfs/t20599/5/1848245261/259599/458bc9b5/5b39951dNfa084179.jpg",
+    "title": "劲酒",
+    "desc": "颜色：红色",
+    "price": 18000,
+    "count": 1,
+    "isSelect": true,
+    "id":1
+},
+{
+    "pic": "https://img10.360buyimg.com/cms/s80x80_jfs/t20599/5/1848245261/259599/458bc9b5/5b39951dNfa084179.jpg",
+    "title": "杏花村",
+    "desc": "颜色：白色",
+    "price": 18000,
+    "count": 1,
+    "isSelect": true,
+    "id":2
+},
+{
+    "pic": "https://img10.360buyimg.com/cms/s80x80_jfs/t20599/5/1848245261/259599/458bc9b5/5b39951dNfa084179.jpg",
+    "title": "老白汾",
+    "desc": "颜色：白色",
+    "price": 18000,
+    "count": 1,
+    "isSelect": true,
+    "id":3
+}
+]
