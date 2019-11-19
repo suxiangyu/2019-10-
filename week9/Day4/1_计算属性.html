@@ -72,14 +72,14 @@
                 // 那么视图刷新时  他就会使用上一次计算出来的结果进行展示  不会再执行函数
                 // 依赖 就是在函数中用到了哪个值 哪个变量  就依赖哪个变量
                 console.log('computed');
-                console.log(this.name,this.t);
+                console.log(this.name, this.t);
                 return this.name.split('').reverse().join('')
             },
-            reverseName2:{
-                get(){
+            reverseName2: {
+                get() {
                     return this.name.split('').join("+")
                 },
-                set(val){
+                set(val) {
                     console.log(val);
                     // 具体的业务逻辑
                     this.t = val
