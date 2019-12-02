@@ -125,7 +125,8 @@
                         <input type="checkbox" v-model="item.done">
                         {{item.todo}}
                     </span>
-                    <input type="text" v-else="item.editable"  v-focus="item.editable" v-model="item.todo" @blur="change(item)">
+                    <input type="text" v-else="item.editable" v-focus="item.editable" v-model="item.todo"
+                        @blur="change(item)">
                     <button @click.stop="del(item)">删除</button>
                 </li>
             </ul>
