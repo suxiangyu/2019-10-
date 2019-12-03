@@ -47,7 +47,19 @@ export default {
                 account:this.name,
                 password:md5(this.psw)
             }
-            login(obj)           
+            login(obj).then(data=>{
+                // console.log(data)
+                if(data.code==0){
+                    this.$alert('恭喜登录成功','提示',{
+                        confirmButtonText: '确定',
+                        callback: action => {
+                            // console.log(action)
+                            // action是告诉我们点击哪个按钮
+                            this.$router.push('/')
+                        }
+                    })
+                }
+            })           
         }
     },
 }

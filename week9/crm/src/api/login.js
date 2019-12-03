@@ -1,4 +1,4 @@
-import http from './index'
+import http from './http'
 let that = null
 export function init(_this){
     that = _this;
@@ -18,6 +18,9 @@ export function login(option){
                 //   });
                 // }
             });
+        }
+        if(data.code == 0){
+            localStorage.setItem('power',data.power)
         }
         return data // 给后边then的参数
     })

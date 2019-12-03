@@ -20,5 +20,21 @@ export default {
   // text-align: center;
   color: #2c3e50;
 }
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lt{
+  float: left;
+}
+.rt{
+  float: right;
+}
+.cl::after{
+  content: '';
+  display: block;
+  clear: both;
+}
 
 </style>

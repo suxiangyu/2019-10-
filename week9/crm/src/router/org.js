@@ -4,35 +4,78 @@ import job from '@/components/job'
 import addJob from '@/components/job/add'
 import user from '@/components/user'
 import addUser from '@/components/user/add'
+//userhandle|departhandle|jobhandle|departcustomer|allcustomer|resetpassword
 export default [
     {
-        path: '/department',
-        name: 'department',
-        component: department
+        path:'/org/department',
+        name:'department',
+        component:department,
+        meta:{
+            type:'department',
+            rootTil:"部门管理",
+            til:'部门列表',
+            icon:'el-icon-office-building',
+            power:'departhandle'
+        }
     },
     {
-        path: '/addDepartment',
-        name: 'addDepartment',
-        component: addDepartment
+        path:'/org/addDepartment',
+        name:'addDepartment',
+        component:addDepartment,
+        meta:{
+            type:'department',
+            rootTil:"部门管理",
+            til:'新增部门',
+            icon:'el-icon-office-building',
+            power:'departhandle'
+        }
     },
     {
-        path: '/job',
-        name: 'job',
-        component: job
+        path:'/org/job',
+        name:'job',
+        component:job,
+        meta:{
+            type:'job',
+            rootTil:"职务管理",
+            til:'职务列表',
+            icon:'el-icon-postcard',
+            power:'jobhandle'
+        }
     },
     {
-        path: '/addJob',
-        name: 'addJob',
-        component: addJob
+        path:'/org/addJob',
+        name:'addJob',
+        component:addJob,
+        meta:{
+            type:'job',
+            rootTil:"职务管理",
+            til:'新增职务',
+            icon:'el-icon-postcard',
+            power:'jobhandle',
+        }
     },
     {
-        path: '/user',
-        name: 'user',
-        component: user
+        path:'/org/user',
+        name:'user',
+        component:user,
+        meta:{
+            type:'user',
+            rootTil:"员工管理",
+            til:'员工列表',
+            icon:'el-icon-s-custom',
+            power:'userhandle'
+        }
     },
     {
-        path: '/addUser',
-        name: 'addUser',
-        component: addUser
+        path:'/org/addUser',
+        name:'addUser',
+        component:addUser,
+        meta:{
+            type:'user',
+            rootTil:"员工管理",
+            til:'员工列表',
+            icon:'el-icon-s-custom',
+            power:'userhandle'
+        }
     }
 ]
