@@ -59,8 +59,18 @@ export default {
       this.menuList = this.menuList.filter(item => {
         if (!this.power) return false; // 若不存在power 则数组为空即可
         return this.power.includes(item[0].meta.power);
-        console.log(this.menuList);
       });
+      console.log(this.menuList);
+      // 权限校验之后  设置默认的跳转路径
+      let url = this.menuList[0] && this.menuList[0][0].path
+      let ary = this.$route.path.split('/');
+      if(ary.length>2&&ary.pop().length>0){
+        // 说明路径是在二级路径下  这时啥也不用做
+        // ary.length>2 说明至少有两个 /   例:/qqq/q  split拆了后是['' 'qqq' 'q'] 所以可以用length判断
+        // ary.pop().length>0 说明最后一项的长度不是0 也就是说第二个/后边有内容 也就是当前是二级路径
+      }else{
+        this.$router.push(url)
+      }
     }
   },
   components: {}

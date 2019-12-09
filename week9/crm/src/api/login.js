@@ -26,3 +26,7 @@ export function login(option){
     })
 }
 // 对于项目做了什么优化  检测用户名正确是否  可以这样写  就优化代码了  不用写好几个地方
+
+export function signout(){
+    return http.get('/user/signout')
+}

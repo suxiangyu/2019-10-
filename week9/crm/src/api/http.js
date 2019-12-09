@@ -8,7 +8,7 @@ let url = process.env.NODE_ENV !== 'production' ? '' : 'https://www.zhihu.com/ap
 const http = axios.create({
     baseURL: url,
     transformRequest(data) {
-        console.log(data)
+        // console.log(data)
         // lodash
         let str = '';
         for(let k in data){
