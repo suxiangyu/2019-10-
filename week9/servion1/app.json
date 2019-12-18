@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/classInfo/classInfo",
+    "pages/class/class"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor":"#ccc",
+    "navigationBarBackgroundColor": "#84d8e6",
+    "navigationBarTitleText": "珠峰培训",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":false
+  },
+  "tabBar":{
+    "color":"#333",
+    "selectedColor":"#5998ec",
+    "borderStyle":"black",
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "iconPath":"imgs/home_1.png",
+        "selectedIconPath":"imgs/home_2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "iconPath": "imgs/class_1.png",
+        "selectedIconPath": "imgs/class_2.png",
+        "text": "课程中心"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "imgs/user_1.png",
+        "selectedIconPath": "imgs/user_2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

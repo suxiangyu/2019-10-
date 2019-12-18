@@ -1,0 +1,23 @@
+/* components/dialog/dialog.wxss */
+@keyframes opa{
+  0%{
+    opacity: 0
+  }
+  100%{
+    opacity: 1
+  }
+}
+.dialog_box{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  /* transition: all 0.5s; */
+  animation: opa 0.3s;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.dialog_box_hide{
+  animation: opa 0.3s reverse;
+}

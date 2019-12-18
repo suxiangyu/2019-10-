@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="home_box">
+  <view class="page-section page-section-spacing swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <view class="swiper-item {{item}}">
+            <image src='{{bannerList[index]}}' class='img'></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 认识珠峰 -->
+  <view class='know_box'>
+    <view class='center h1'>认识珠峰</view>
+    <image src='http://www.zhufengpeixun.cn/skin/20142/img/zfBg2.jpg' class='video_cover'>
+      <view class='icon_box'>
+        <image src='http://www.zhufengpeixun.cn/skin/20142/img/video.png' catchtap='showDia'></image>
+      </view>
+    </image>
+    <dialog catchclose='close' wx:if="{{knowFlag}}">
+      <video id="myVideo" src="http://img.zhufengpeixun.cn/zfcctv.mp4" controls object-fit='cover' bindloadedmetadata='canplay'></video>
+    </dialog>
+  </view>
+
+
+  <!-- 珠峰故事 -->
+  <view class='know_box'>
+    <view class='center h1'>珠峰故事</view>
+    <image src='http://www.zhufengpeixun.cn/skin/20142/img/zfBg.jpg' class='video_cover'>
+      <view class='icon_box'>
+        <image src='http://www.zhufengpeixun.cn/skin/20142/img/video2.png' catchtap='showDia2'></image>
+      </view>
+    </image>
+    <dialog catchclose='close2' wx:if="{{knowFlag2}}">
+      <video id="myVideo" src="http://img.zhufengpeixun.cn/zf10.mp4" danmu-list="{{danmuList}}" danmu-btn controls object-fit='cover'></video>
+    </dialog>
+  </view>
+
+  <!-- 限时免费公开课 -->
+  <view class='public_class'>
+    <view class='center h1'>限时免费公开课</view>
+    <view class='public_class_list_box'>
+      <view class='one_box' wx:for="{{publicList}}" wx:key="{{index}}">
+        <image src="{{item.img}}" mode='scaleToFill'></image>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+</view>

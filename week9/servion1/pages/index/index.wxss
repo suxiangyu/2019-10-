@@ -1,0 +1,79 @@
+/**index.wxss**/
+
+.swiper-item {
+  width: 100%;
+  height: 150px;
+}
+
+.demo-text-1 {
+  background: blue;
+}
+
+.demo-text-2 {
+  background: greenyellow;
+}
+
+.demo-text-3 {
+  background: salmon;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.know_box {
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+
+.know_box #myVideo {
+  width: 100%;
+  position: relative;
+  top: 30%;
+}
+
+.know_box .video_cover {
+  width: 100%;
+  position: relative;
+}
+
+.know_box .icon_box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.know_box .icon_box image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.public_class_list_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.public_class_list_box .one_box {
+  width: 50%;
+  padding: 10rpx;
+  box-sizing: border-box;
+  flex: auto;
+}
+
+.public_class_list_box .one_box image {
+  width: 100%;
+  height: 125px;
+}
+
+.public_class_list_box .one_box text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}

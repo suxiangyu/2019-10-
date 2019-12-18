@@ -1,0 +1,14 @@
+<!--pages/classInfo/classInfo.wxml-->
+<view class='info_box'>
+  <view class='title h1'>{{title}}</view>
+  <view class='desc'>多么多么牛</view>
+  <image src='{{img}}' mode='aspectFit'></image>
+  <view class='btn_box'>
+    <view>
+      <navigator class='cart icon-cart' url="/pages/user/user" hover-class="navigator-hover" open-type='switchTab'></navigator>
+      <text>{{count}}</text>
+    </view>
+    <button size='mini' catchtap='add'>加入购物车</button>
+    <button size='mini' catchtap='touser'>立即购买</button>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+<!--components/dialog/dialog.wxml-->
+<view class='dialog_box {{ishide ? "dialog_box_hide" : ""}}'  bindtap='fn'  mark:self='self'>
+  <slot catchtap='stop'></slot>
+</view>

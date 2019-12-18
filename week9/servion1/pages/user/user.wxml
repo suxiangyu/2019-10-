@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class='cart_box'>
+    <view class='h2'>购物车</view>
+    <view wx:for="{{goodsList}}" wx:key='{{item.id}}' class='one_goods'>
+      <view class='img_box'>
+        <image src='{{item.img}}' mode='aspectFit'></image>
+      </view>
+      <view class='content_box'>
+        <view>{{item.til}}</view>
+        数量：<input value='{{item.count}}'></input>
+      </view>
+    </view>
+  </view>
+</view>

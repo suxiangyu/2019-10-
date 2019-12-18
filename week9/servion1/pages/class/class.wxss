@@ -1,0 +1,32 @@
+/* pages/class/class.wxss */
+.class_list_box{
+  padding: 10rpx;
+}
+.til{
+  border-bottom: 1px solid #eee;
+}
+.one_box navigator{
+  display: flex;
+}
+.one_box .l_box{
+  width: 200rpx;
+  height: 150rpx
+}
+.one_box .l_box image{
+  width: 100%;
+  height: 100%
+}
+.one_box .r_box{
+  padding: 5rpx 10rpx;
+  position: relative;
+}
+.one_box .r_box .bot{
+  position: absolute;
+  bottom: 10rpx;
+  left: 10rpx;
+  font-size: 14px;
+  color: #333;
+}
+.one_box .r_box .bot text{
+  margin:  0 20rpx;
+}

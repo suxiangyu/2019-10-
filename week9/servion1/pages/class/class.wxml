@@ -1,0 +1,64 @@
+<!--pages/class/class.wxml-->
+<view class='class_list_box'>
+  <view class='h1 til'>课程列表</view>
+  <view class='class_box'>
+    <view class='h2'>零基础课程</view>
+    <view class='one_box' wx:for="{{level1}}" wx:key='index'>
+      <navigator url="/pages/classInfo/classInfo?img={{item.img}}&til={{item.title}}&id={{item.id}}" hover-class="navigator-hover">
+        <view class='l_box'>
+          <image src="{{item.img}}" mode='aspectFit'></image>
+        </view>
+        <view class='r_box'>
+          <view class='top'>{{item.title}}</view>
+          <view class='bot'>
+            <text class='level'>初级；</text>
+            <text class='price'>{{item.price}}</text>
+            <text class='count'>{{item.count}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='class_box'>
+    <view class='h2'>前端工程化课程</view>
+    <view class='one_box' wx:for="{{level2}}" wx:key='index'>
+      <navigator url="/pages/classInfo/classInfo?img={{item.img}}&til={{item.title}}&id={{item.id}}" hover-class="navigator-hover">
+        <view class='l_box'>
+          <image src="{{item.img}}" mode='aspectFit'></image>
+        </view>
+        <view class='r_box'>
+          <view class='top'>{{item.title}}</view>
+          <view class='bot'>
+            <text class='level'>中级；</text>
+            <text class='price'>{{item.price}}</text>
+            <text class='count'>{{item.count}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='class_box'>
+    <view class='h2'>前端框架课程</view>
+    <view class='one_box' wx:for="{{level3}}" wx:key='index'>
+      <navigator url="/pages/classInfo/classInfo?img={{item.img}}&til={{item.title}}&id={{item.id}}" hover-class="navigator-hover">
+        <view class='l_box'>
+          <image src="{{item.img}}" mode='aspectFit'></image>
+        </view>
+        <view class='r_box'>
+          <view class='top'>{{item.title}}</view>
+          <view class='bot'>
+            <text class='level'>高级；</text>
+            <text class='price'>{{item.price}}</text>
+            <text class='count'>{{item.count}}</text>
+          </view>
+        </view>
+      </navigator>
+
+    </view>
+  </view>
+  <!-- <navigator url="/pages/classInfo/classInfo?title=navigate" hover-class="navigator-hover">跳转到新页面</navigator>
+  <navigator url="/pages/classInfo/classInfo?title=navigatet" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</navigator>
+  <navigator url="/pages/index/index" open-type="switchTab" hover-class="other-navigator-hover">切换 Tab</navigator> -->
+</view>
