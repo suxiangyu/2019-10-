@@ -39,7 +39,7 @@ export default {
           });
         }
       });
-      myChart.setOption(option1);
+       myChart.setOption(option1);
     }
   },
   components: {}
